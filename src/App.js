@@ -141,23 +141,41 @@ function App() {
    /***********************************************************/
     const calculateResult = () => {
       
-      let leftValue = parseFloat(operand1); //left operand
-      let rightValue = parseFloat(value);  //right operand
+      let leftValueFloat = parseFloat(operand1); //left operand
+      let rightValueFloat = parseFloat(value);  //right operand
+
+      let leftValueString = operand1;
+      let rightValueString = value.toString();
+
+      if (!leftValueString.includes(".")){
+        leftValueString = leftValueString.concat(".0");
+      }
+      if (!rightValueString.includes(".")){
+        rightValueString = rightValueString.concat(".0");
+      }
+
+      let left = leftValueString.split(".");
+      let right = rightValueString.split(".");
+    
+      let max = Math.max(left[1].length,right[1].length);
+      let multiplier = Math.pow(10,max);
+      let newLeftValue = leftValueFloat * multiplier;
+      let newRightValue = rightValueFloat * multiplier;
+
     
       if (temp === "÷"){
-        setValue((leftValue/rightValue).toString().substring(0,7));
+        setValue((leftValueFloat/rightValueFloat).toString().substring(0,7));
         
       }
       else if (temp === "×"){
-        setValue((leftValue*rightValue).toString().substring(0,7));
+        setValue((leftValueFloat*rightValueFloat).toString().substring(0,7));
       }
       else if (temp === "−"){
-        setValue((leftValue-rightValue).toString().substring(0,7));
+        setValue((newLeftValue-newRightValue)/multiplier.toString().substring(0,7));
       }
       else if (temp === "+"){
-        setValue((leftValue+rightValue).toString().substring(0,7));
+        setValue((leftValueFloat+rightValueFloat).toString().substring(0,7));
       }
-
     }
    /***********************************************************/
 
