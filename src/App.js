@@ -58,7 +58,10 @@ function App() {
 
     /* update to decimal (.)*/
     if (newValue === "." ){
-      if (value.toString().includes(".")){
+      if (value == 0){
+        setValue(".");
+      }
+      else if (value.toString().includes(".")){
         newString = value;
         setValue(newString);
       }
