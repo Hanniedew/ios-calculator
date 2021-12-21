@@ -47,7 +47,7 @@ function App() {
 
 
     /* update Value*/
-    if (value == 0){
+    if (value == 0 && !value.toString().includes(".")){
       setValue(newValue.toString());
     }
     else{ // any value other than starting point of 0
