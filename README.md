@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # To view my project: https://reactproject3.web.app/
 
+# Check out my site: https://wong-lihan.web.app
+
 # Screenshots
 
 ![dashboard](https://github.com/Hanniedew/ios-calculator/blob/master/images/ios.jpg)
